@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- Write a JavaScript program to display the reading status (i.e. display book name, author name and reading status) of the following books.-->
+<h2>JavaScript Object list </h2>
+<p id="output"></p>
+
+
+<script>
+var library = [ 
+   {
+       author: 'Bill Gates',
+       title: 'The Road Ahead',
+       readingStatus: true
+   },
+   {
+       author: 'Steve Jobs',
+       title: 'Walter Isaacson',
+       readingStatus: true
+   },
+   {
+       author: 'Suzanne Collins',
+       title:  'Mockingjay: The Final Book of The Hunger Games', 
+       readingStatus: false
+   }];
+
+var objVal = "";
+
+for(var i = 0; i<library.length; i++){
+	//console.log(library[i].title);
+	objVal +="<tr><td>"+ library[i].title +"</td><td>"+ library[i].author +"</td><td>"+ library[i].readingStatus +"</td></tr>" 
+}
+
+document.getElementById("output").innerHTML = "<table border='1' cellpadding='10' cellspacing='0'><tr><th>Book Name</th><th>Author Name</th><th>Reading Status</th></tr>"+
+objVal
++"</table>";
+
+</script>
+
+</body>
+</html>
