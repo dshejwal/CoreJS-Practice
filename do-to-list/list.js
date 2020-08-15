@@ -7,20 +7,18 @@ var dataList = [];
 
 let getDataList = JSON.parse(localStorage.getItem('myDataList'));
         
-if(Array.isArray(getDataList) ){
+if( Array.isArray(getDataList) ) {
     dataList = getDataList;
-} else{
-    dataList = [];
 }
 
 //Create list Element
 function createListFunc (){
-    var listElement = '';
+    let listElement = '';
 
     dataList.forEach(myFunction);
 
     function myFunction(item, index) {
-        listElement += `<li>${item} <span class='fa fa-trash-o' onclick='closeFunct(${index})'></span> <span class='fa fa-pencil'></span></li>`
+        listElement += `<li><input type='text' value='${item}' readonly/> <span class='fa fa-trash-o' onclick='closeFunct(${index})'></span> <span class='fa fa-pencil'></span></li>`
     }
     listParent.innerHTML = listElement;
 }
@@ -34,18 +32,25 @@ addBtn.addEventListener('click', addFuncList);
 function addFuncList(){
 
     //Input value get
-    var inputValue = document.querySelector('#myInput').value;
+    let inputValue = document.querySelector('#myInput').value;
 
     // Push data in list
     if(inputValue === ''){
         alert(`Please enter the value`);
     } else {
         alert(`Successfully Added : ${inputValue}`);
-            dataList.push(inputValue);
-            localStorage.setItem('myDataList', JSON.stringify(dataList));
-            document.getElementById('myInput').value = '';
-            createListFunc();
+        dataList.push(inputValue);
+        localStorage.setItem('myDataList', JSON.stringify(dataList));
+        document.getElementById('myInput').value = '';
+        createListFunc();
     }
+}
+
+//Delete signle item
+function closeFunct(index) {
+    dataList.splice(index, 1);
+    localStorage.setItem('myDataList', JSON.stringify(dataList));
+    event.target.parentElement.remove();    
 }
 
 //Clear all items
@@ -54,14 +59,4 @@ function clearAllFunc(){
         localStorage.removeItem('myDataList');
         listParent.innerHTML = '';
     }
-}
-
-
-//Delete signle item
-  function closeFunct(index) {
-
-    dataList.splice(index, 1);
-    localStorage.setItem('myDataList', JSON.stringify(dataList));
-    event.target.parentElement.remove();
-    
 }

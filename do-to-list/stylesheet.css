@@ -34,11 +34,11 @@ ul li {
   line-height: 30px;
   transition: 0.2s;
   border-bottom: 1px solid #ddd;
-  /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  overflow: hidden;
 }
 ul li span{
 	font-size: 24px;
