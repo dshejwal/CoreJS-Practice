@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: verdana;
+  }
+  .mainWrapper {
+      margin: 0 auto;
+      width: 300px;
+  }
+  h2 {
+      padding:15px 0 20px;
+      margin: 0;
+      font-size: 16px;
+      text-transform: uppercase;
+      text-align: center;
+  }
+  
+  /* Include the padding and border in an element's total width and height */
+  * {
+    box-sizing: border-box;
+  }
+  
+  .my-rating {
+    position: relative;
+    font-size: 22px;
+    text-align: center;
+    background: #eaeaea;
+    padding: 10px 0;
+    width: 188px;
+    margin: 0 auto;
+  }
+  .my-rating i {
+    cursor: pointer;
+  }
+  .my-rating .fa-star{
+    color: #f6BB42;
+  }
+  .rating-msg {
+    text-align: center;
+    margin: 20px 0 0;
+  }

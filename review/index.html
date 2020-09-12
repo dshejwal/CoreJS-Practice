@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rating</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<div class="mainWrapper">
+	<h2>Please give me your Rating</h2>
+	<div class="my-rating">
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+		<i class="fa fa-star-o" aria-hidden="true"></i>
+	</div>
+	<div class="rating-msg" id="rate-msg"></div>
+</div>
+<script>
+
+ const stars = document.querySelector(".my-rating").children;
+ const msgId = document.getElementById('rate-msg');
+ const ratingMsg = ['Terrible','Poor','Average','Very good','Excellent'];
+ let index;
+  
+  for(let i=0; i<stars.length; i++){
+
+  	stars[i].addEventListener("mouseover",function(){
+  		 for(let j=0; j<stars.length; j++){
+  		 	stars[j].classList.remove("fa-star");		 	
+            stars[j].classList.add("fa-star-o");	 	
+  		 }
+  		 for(let j=0; j<=i; j++){
+  		 	stars[j].classList.remove("fa-star-o");		 	
+           stars[j].classList.add("fa-star");		 	
+  		 }
+		//msgId.innerText = ratingMsg[i];
+  	});
+
+	stars[i].addEventListener("mouseout",function(){
+  		 for(let j=0; j<stars.length; j++){
+  		 	stars[j].classList.remove("fa-star");		 	
+            stars[j].classList.add("fa-star-o");
+  		 }
+  		 for(let j=0; j<=index; j++){
+  		 	stars[j].classList.remove("fa-star-o");		 	
+           stars[j].classList.add("fa-star");		 	
+  		 }
+
+		
+  	});
+	
+	stars[i].addEventListener("click",function(){
+    	index=i;
+		msgId.innerText = ratingMsg[i];
+  	});
+
+  }    
+</script>
+</body>
+</html>

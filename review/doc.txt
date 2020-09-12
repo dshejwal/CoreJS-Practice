@@ -1,0 +1,7 @@
+we have only 4 day left to next sessions,  We can take simple start rating assignment fairly simple and  something to learn out of it. I am planning this for Team D. We can do it for all if want
+
+1. Terrible
+2. Poor
+3. Average
+4. Very good
+5. Excellent
