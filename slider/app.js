@@ -9,7 +9,7 @@ let count = 1,
 prevBtn.classList.add("disable-btn");
 
 // Button next & prev.
-nextBtn.addEventListener('click', () => {
+function nextFunc() {
 
     if (count > (sliders.children.length - 1)) {
         return false;
@@ -22,9 +22,9 @@ nextBtn.addEventListener('click', () => {
     widthSet = widthSet + sliderSize;
     sliders.style.transform = 'translateX(' + -widthSet + 'px)';
     count++;
-});
+};
 
-prevBtn.addEventListener('click', () => {
+function prevFunc() {
 
     if (count == 1) {
         return false;
@@ -37,4 +37,7 @@ prevBtn.addEventListener('click', () => {
     widthSet = widthSet - sliderSize;
     sliders.style.transform = 'translateX(' + -widthSet + 'px)';
     count--;
-});
+};
+
+nextBtn.addEventListener('click', nextFunc);
+prevBtn.addEventListener('click', prevFunc);
